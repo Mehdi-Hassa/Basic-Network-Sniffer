@@ -3,9 +3,6 @@
 
 from scapy.all import sniff, IP, TCP, UDP
 
-# ----------------------------------------------------
-# Function to process each captured packet
-# ----------------------------------------------------
 def packet_callback(packet):
     # Check if packet contains an IP layer
     if IP in packet:
@@ -29,9 +26,5 @@ def packet_callback(packet):
             print("Protocol Type: UDP")
             print(f"Source Port: {udp_layer.sport}")
             print(f"Destination Port: {udp_layer.dport}")
-
-# ----------------------------------------------------
-# Start sniffing network traffic
-# ----------------------------------------------------
 print("Starting network sniffer... Press CTRL + C to stop.")
 sniff(prn=packet_callback, store=False)
