@@ -1,30 +1,52 @@
-################### Basic-Network-Sniffer #################
+# Basic-Network-Sniffer
 
+A Python network packet sniffer built with [scapy](https://scapy.net/),
+extended with [ROS 2](https://docs.ros.org/en/humble/) drone-control packages.
 
+## Packages
+
+| Package | Type | Description |
+|---|---|---|
+| `network_sniffer` | ament_python | Captures IP/TCP/UDP packets and publishes them as ROS 2 messages |
+| `drone_interfaces` | ament_cmake | Custom ROS 2 messages and services for drone development |
+| `drone_controller` | ament_python | Drone controller and telemetry nodes |
+
+## Quick start (core sniffer)
+
+```python
 from scapy.all import sniff, IP, TCP, UDP
 
 def packet_callback(packet):
-    # Check if packet contains an IP layer
     if IP in packet:
         ip_layer = packet[IP]
 
         print("\n--- New Packet Captured ---")
-        print(f"Source IP: {ip_layer.src}")     # IP of sender
-        print(f"Destination IP: {ip_layer.dst}")  # IP of receiver
-        print(f"Protocol: {ip_layer.proto}")      # Protocol number
+        print(f"Source IP: {ip_layer.src}")
+        print(f"Destination IP: {ip_layer.dst}")
+        print(f"Protocol: {ip_layer.proto}")
 
-        # Check for TCP packets
         if TCP in packet:
             tcp_layer = packet[TCP]
             print("Protocol Type: TCP")
             print(f"Source Port: {tcp_layer.sport}")
             print(f"Destination Port: {tcp_layer.dport}")
 
-        # Check for UDP packets
         elif UDP in packet:
             udp_layer = packet[UDP]
             print("Protocol Type: UDP")
             print(f"Source Port: {udp_layer.sport}")
             print(f"Destination Port: {udp_layer.dport}")
+
 print("Starting network sniffer... Press CTRL + C to stop.")
 sniff(prn=packet_callback, store=False)
+```
+
+## Developer setup
+
+New to the project?  See **[docs/development-setup.md](docs/development-setup.md)** for a
+step-by-step guide covering:
+
+- Installing **Visual Studio Code** on Ubuntu 22.04
+- Installing **ROS 2 Humble**
+- Setting up the Python environment
+- Building the workspace with `colcon`
