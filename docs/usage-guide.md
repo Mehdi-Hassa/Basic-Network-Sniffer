@@ -111,12 +111,17 @@ git clone https://github.com/Mehdi-Hassa/Basic-Network-Sniffer.git
 pip3 install scapy
 ```
 
-Now open the workspace in VSCode:
+Now open the workspace in VSCode.  From the same terminal, run:
 
 ```bash
 cd ~/ros2_ws
 code .
 ```
+
+> **Can't find VSCode?**  See the
+> [Opening VSCode on Ubuntu 22.04](development-setup.md#opening-vscode-on-ubuntu-2204)
+> section in the setup guide for all the ways to launch it
+> (terminal, Applications menu, Files app, Dock shortcut).
 
 VSCode opens with the whole workspace as its root.
 

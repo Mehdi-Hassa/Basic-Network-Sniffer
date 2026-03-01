@@ -89,6 +89,65 @@ Future updates are applied automatically with `sudo apt upgrade`.
 
 ---
 
+### Opening VSCode on Ubuntu 22.04
+
+Once VSCode is installed, there are four ways to launch it:
+
+#### 1. From a terminal (most common for developers)
+
+Open a terminal (`Ctrl+Alt+T`) and run one of these commands:
+
+```bash
+code          # Open VSCode with no file or folder
+code .        # Open VSCode with the current directory as the workspace (recommended)
+code myfile.py  # Open a specific file directly in VSCode
+```
+
+> **Tip**: Running `code .` inside your ROS 2 workspace (`~/ros2_ws`) is the
+> standard way to open the project — VSCode will show the full workspace tree
+> in the Explorer panel.
+
+#### 2. From the GNOME Applications menu
+
+1. Press the **Super** key (Windows key) to open the Activities Overview, or
+   click **Show Applications** (the nine-dot grid) in the Dock.
+2. Type **"code"** or **"Visual Studio Code"** in the search bar.
+3. Click the VSCode icon to launch it.
+
+You can also right-click the icon and choose **Pin to Dash** or
+**Add to Favourites** to keep it in the Dock for quick access.
+
+#### 3. From the Files application (Nautilus)
+
+1. Open the **Files** app and navigate to your project folder
+   (e.g. `~/ros2_ws`).
+2. Right-click an empty area inside the folder.
+3. Choose **"Open with Other Application"** → search for **"Code"** → click
+   **Open**.
+
+> **Note**: The "Open Folder with Code" context-menu entry is added
+> automatically by the Microsoft APT and snap packages.  If it is missing,
+> install the VSCode `code` package via Method A or B above.
+
+#### 4. If `code` is not found in the terminal after a snap install
+
+Log out and log back in, or add the snap binary directory to your path for the
+current session:
+
+```bash
+export PATH="$PATH:/snap/bin"
+code .
+```
+
+To make this permanent, add the line to `~/.bashrc`:
+
+```bash
+echo 'export PATH="$PATH:/snap/bin"' >> ~/.bashrc
+source ~/.bashrc
+```
+
+---
+
 ## 2. Recommended VSCode Extensions
 
 Install the following extensions for the best experience with this project.
