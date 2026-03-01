@@ -223,6 +223,14 @@ sudo ros2 run network_sniffer sniffer_node
 
 ---
 
+## Next steps
+
+Once the build succeeds and the nodes run, continue with the
+**[Usage Guide](usage-guide.md)** for a complete walkthrough of running the
+drone simulation and network sniffer from start to end inside VSCode.
+
+---
+
 ## Troubleshooting
 
 | Problem | Fix |

@@ -43,10 +43,9 @@ sniff(prn=packet_callback, store=False)
 
 ## Developer setup
 
-New to the project?  See **[docs/development-setup.md](docs/development-setup.md)** for a
-step-by-step guide covering:
+New to the project?  The docs folder has two guides:
 
-- Installing **Visual Studio Code** on Ubuntu 22.04
-- Installing **ROS 2 Humble**
-- Setting up the Python environment
-- Building the workspace with `colcon`
+| Guide | What it covers |
+|---|---|
+| [docs/development-setup.md](docs/development-setup.md) | Installing VSCode, ROS 2 Humble, Python dependencies, and building the workspace |
+| [docs/usage-guide.md](docs/usage-guide.md) | **Start-to-end** walkthrough — VSCode orientation, ROS 2 concepts, running the drone simulation and network sniffer |
