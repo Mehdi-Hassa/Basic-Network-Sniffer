@@ -1,0 +1,5 @@
+# Request: true to arm, false to disarm
+bool arm
+---
+bool success
+string message
